@@ -13,7 +13,13 @@ export default createStore({
 
     setToDo: (state, value) => state.tododatas = value,
     
-    addToDo: (state, newToDo) => state.tododatas.unshift(newToDo)
+    addToDo: (state, newToDo) => state.tododatas.unshift(newToDo),
+
+    deleteToDo(state, deleteId) {
+      state.tododatas = state.tododatas.filter(data => {
+        return data.id != deleteId
+      })
+    }
 
   },
   actions: {
@@ -27,6 +33,11 @@ export default createStore({
       axios.post('https://jsonplaceholder.typicode.com/todos',newToDo).then(response => {
         commit('addToDo', response.data);
       });
+    },
+
+    deleteToDoData({commit} , deleteId) {
+      axios.delete(`https://jsonplaceholder.typicode.com/todos/${deleteId}`);
+      commit('deleteToDo', deleteId);      
     }
   },
   modules: {
