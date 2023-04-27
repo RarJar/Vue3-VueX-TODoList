@@ -3,6 +3,8 @@
 
     <AddToDo></AddToDo>
 
+    <LimitToDo></LimitToDo>
+
     <div class="d-flex flex-wrap justify-content-between">
       <div class="w-100 m-2 p-3 d-flex flex-wrap justify-content-between todo-item" v-for="(data, index) in getDatas" :key="index">
         {{ data.title }}
@@ -17,10 +19,11 @@
 import { mapActions, mapGetters } from "vuex";
 
 import AddToDo from "../components/AddToDo.vue";
+import LimitToDo from "../components/LimitToDo.vue";
 
 export default {
   components: {
-    AddToDo
+    AddToDo, LimitToDo
   },
   computed: {
     ...mapGetters(['getDatas'])

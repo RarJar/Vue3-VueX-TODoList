@@ -1,6 +1,6 @@
 <template>
     <div>
-       <div class="input-group my-4">
+       <div class="input-group my-3">
             <input type="text" class="form-control" placeholder="Enter new data ..." v-model="newToDo.title">
             <button class="btn btn-dark" id="button-addon2" @click="onAddDataBtn(newToDo)">Add Data</button>
         </div> 

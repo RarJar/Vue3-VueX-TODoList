@@ -38,6 +38,12 @@ export default createStore({
     deleteToDoData({commit} , deleteId) {
       axios.delete(`https://jsonplaceholder.typicode.com/todos/${deleteId}`);
       commit('deleteToDo', deleteId);      
+    },
+
+    limitToDoData({commit} , limitCount) {
+      axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${limitCount}`).then(response => {
+        commit('setToDo', response.data);        
+      });   
     }
   },
   modules: {
