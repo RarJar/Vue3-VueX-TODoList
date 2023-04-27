@@ -6,23 +6,26 @@ export default createStore({
     tododatas: []
   },
   getters: {
-    // getDatas(state) {
-    //   return state.tododatas
-    // }
     getDatas: state => state.tododatas
     
   },
   mutations: {
-    // setToDoData(state,resData) {
-    //   state.tododatas = resData
-    // }
 
-    setToDoData: (state, value) => state.tododatas = value
+    setToDo: (state, value) => state.tododatas = value,
+    
+    addToDo: (state, newToDo) => state.tododatas.unshift(newToDo)
+
   },
   actions: {
     getToDoData({commit}) {
       axios.get('https://jsonplaceholder.typicode.com/todos').then(response => {
-        commit('setToDoData', response.data);
+        commit('setToDo', response.data);
+      });
+    },
+
+    addToDoData({commit} ,newToDo) {
+      axios.post('https://jsonplaceholder.typicode.com/todos',newToDo).then(response => {
+        commit('addToDo', response.data);
       });
     }
   },
