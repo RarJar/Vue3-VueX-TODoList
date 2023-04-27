@@ -1,4 +1,6 @@
-# vue_sample
+# Vue3-VueX-ToDoList
+
+![alt text](https://github.com/RarJar/Vue3-VueX-TODoList/blob/05d1b939729187203cfb4bb38d7d9651706a1daa/vuex_todolist.png)
 
 ## Project setup
 ```
